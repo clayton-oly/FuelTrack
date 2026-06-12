@@ -1,9 +1,10 @@
 ﻿using FuelTrack.Data;
+using FuelTrack.Interfaces;
 using FuelTrack.Models;
 
 namespace FuelTrack.Repository
 {
-    public class VeiculoRepository
+    public class VeiculoRepository : IVeiculoRepository
     {
         private readonly AppDbContext _context;
 
@@ -20,6 +21,12 @@ namespace FuelTrack.Repository
         public Veiculo GetById(Guid id)
         {
             return _context.Veiculos.Find(id);
+        }
+
+        public void Post(Veiculo veiculo)
+        {
+            _context.Veiculos.Add(veiculo);
+            _context.SaveChanges();
         }
     }
 }

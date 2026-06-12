@@ -1,5 +1,5 @@
 using FuelTrack.DTOs;
-using FuelTrack.Repository;
+using FuelTrack.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FuelTrack.Controllers
@@ -8,9 +8,9 @@ namespace FuelTrack.Controllers
     [Route("[controller]")]
     public class VeiculosController : ControllerBase
     {
-        private readonly VeiculoRepository _veiculoRepository;
+        private readonly IVeiculoRepository _veiculoRepository;
 
-        public VeiculosController(VeiculoRepository veiculoRepository)
+        public VeiculosController(IVeiculoRepository veiculoRepository)
         {
             _veiculoRepository = veiculoRepository;
         }
@@ -34,8 +34,7 @@ namespace FuelTrack.Controllers
             {
                 Id = veiculo.Id,
                 Modelo = veiculo.Modelo,
-                Tanque = veiculo.Tanque,
-                //TipoCombustivel = veiculo.TipoCombustivel
+                TanqueCapacidade = veiculo.TanqueCapacidade,
             };
         }
     }

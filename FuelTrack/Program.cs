@@ -1,15 +1,18 @@
 using FuelTrack.Data;
+using FuelTrack.Interfaces;
 using FuelTrack.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("FuelTrackDb"));
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<VeiculoRepository>();
+builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+builder.Services.AddScoped<IAbastecimentoRepository, AbastecimentoRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 builder.Services.AddControllers();
 
