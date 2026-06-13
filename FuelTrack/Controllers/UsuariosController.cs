@@ -42,6 +42,8 @@ namespace FuelTrack.Controllers
             var usuario = new Usuario
             {
                 Id = Guid.NewGuid(),
+                Nome = usuarioDTO.Nome,
+                Email = usuarioDTO.Email,
             };
 
             _usuarioRepository.Post(usuario);

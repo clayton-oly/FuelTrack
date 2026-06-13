@@ -42,6 +42,14 @@ namespace FuelTrack.Controllers
             var abastecimento = new Abastecimento
             {
                 Id = Guid.NewGuid(),
+                VeiculoId = abastecimentoDTO.VeiculoId,
+                PrecoTotal = abastecimentoDTO.PrecoTotal,
+                Anotacoes = abastecimentoDTO.Anotacoes,
+                IsTanqueCompleto = abastecimentoDTO.IsTanqueCompleto,
+                OdometroKm = abastecimentoDTO.OdometroKm,
+                Litros = abastecimentoDTO.Litros,
+                PrecoCombustivel = abastecimentoDTO.PrecoCombustivel,
+                //CreatedAt = DateTime.UtcNow
             };
 
             _abastecimentoRepository.Post(abastecimento);

@@ -6,7 +6,6 @@ namespace FuelTrack.DTOs
     {
         public Guid Id { get; set; }
         public Guid VeiculoId { get; set; }
-        public Veiculo Veiculo { get; set; }
         public decimal OdometroKm { get; set; }
         public decimal Litros { get; set; }
         public decimal PrecoTotal { get; set; }
