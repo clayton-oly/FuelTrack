@@ -1,6 +1,7 @@
 using FuelTrack.DTOs;
 using FuelTrack.Interfaces;
 using FuelTrack.Models;
+using FuelTrack.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FuelTrack.Controllers
@@ -10,10 +11,26 @@ namespace FuelTrack.Controllers
     public class AbastecimentosController : ControllerBase
     {
         private readonly IAbastecimentoRepository _abastecimentoRepository;
+        private readonly AbastecimentoService _abastecimentoService;
 
-        public AbastecimentosController(IAbastecimentoRepository abastecimentoRepository)
+        public AbastecimentosController(IAbastecimentoRepository abastecimentoRepository, AbastecimentoService abastecimentoService)
         {
             _abastecimentoRepository = abastecimentoRepository;
+            _abastecimentoService = abastecimentoService;
+        }
+
+        [HttpGet("alllast")]
+        public IEnumerable<AbastecimentoDTO> GetAllLast()
+        {
+            return _abastecimentoService.GetAll();
+
+        }
+
+        [HttpGet("last")]
+        public AbastecimentoDTO GetLast()
+        {
+            return _abastecimentoService.GetLast();
+
         }
 
         [HttpGet]
@@ -22,6 +39,14 @@ namespace FuelTrack.Controllers
             return _abastecimentoRepository.GetAll().Select(v => new AbastecimentoDTO
             {
                 Id = v.Id,
+                VeiculoId = v.VeiculoId,
+                PrecoTotal = v.PrecoTotal,
+                Anotacoes = v.Anotacoes,
+                IsTanqueCompleto = v.IsTanqueCompleto,
+                OdometroKm = v.OdometroKm,
+                Litros = v.Litros,
+                PrecoCombustivel = v.PrecoCombustivel,
+                //CreatedAt = DateTime.UtcNow
             });
         }
 

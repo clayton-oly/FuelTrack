@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FuelTrack.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260612174130_InitialCreate")]
+    [Migration("20260612210409_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -115,9 +115,6 @@ namespace FuelTrack.Migrations
                     b.Property<string>("TipoCombustivel")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
 
                     b.Property<Guid>("UsuarioId")
                         .HasColumnType("uuid");

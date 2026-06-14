@@ -30,7 +30,6 @@ namespace FuelTrack.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     UsuarioId = table.Column<Guid>(type: "uuid", nullable: false),
                     Nome = table.Column<string>(type: "text", nullable: false),
                     Marca = table.Column<string>(type: "text", nullable: false),

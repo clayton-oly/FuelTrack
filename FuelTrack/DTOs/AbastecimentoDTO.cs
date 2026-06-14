@@ -12,6 +12,7 @@ namespace FuelTrack.DTOs
         public decimal PrecoCombustivel { get; set; }
         public bool IsTanqueCompleto { get; set; }
         public string Anotacoes { get; set; }
+        public decimal Consumo { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

@@ -18,6 +18,11 @@ namespace FuelTrack.Repository
             return _context.Abastecimentos.ToList();
         }
 
+        public Abastecimento GetLast()
+        {
+            return _context.Abastecimentos.OrderByDescending(a => a.CreatedAt).FirstOrDefault();
+        }
+
         public Abastecimento GetById(Guid id)
         {
             return _context.Abastecimentos.Find(id);

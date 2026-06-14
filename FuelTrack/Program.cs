@@ -1,6 +1,7 @@
 using FuelTrack.Data;
 using FuelTrack.Interfaces;
 using FuelTrack.Repository;
+using FuelTrack.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddScoped<IAbastecimentoRepository, AbastecimentoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+builder.Services.AddScoped<AbastecimentoService>();
 
 builder.Services.AddControllers();
 

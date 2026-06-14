@@ -113,9 +113,6 @@ namespace FuelTrack.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("UsuarioId")
                         .HasColumnType("uuid");
 
